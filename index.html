@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أعتذر منك</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Amiri', serif;
+            background: linear-gradient(to right, #ffecd2, #fcb69f);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            direction: rtl;
+            overflow: hidden;
+            color: #333;
+        }
+
+        .hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #ff6b6b;
+            transform: rotate(45deg);
+            animation: float 7s infinite ease-in-out;
+        }
+
+        .heart:before,
+        .heart:after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #ff6b6b;
+            border-radius: 50%;
+        }
+
+        .heart:before {
+            top: -10px;
+            left: 0;
+        }
+
+        .heart:after {
+            left: 10px;
+            top: 0;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(45deg);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-10vh) rotate(45deg);
+                opacity: 0;
+            }
+        }
+
+        .heart:nth-child(1) {
+            left: 20%;
+            animation-duration: 5s;
+            animation-delay: 1s;
+        }
+
+        .heart:nth-child(2) {
+            left: 50%;
+            animation-duration: 7s;
+            animation-delay: 2s;
+        }
+
+        .heart:nth-child(3) {
+            left: 80%;
+            animation-duration: 9s;
+            animation-delay: 3s;
+        }
+
+        .container {
+            position: relative;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            padding: 40px;
+            text-align: center;
+            z-index: 1;
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            color: #E8671F;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        p {
+            color: #555;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .video-container {
+            margin: 20px 0;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        video {
+            width: 100%;
+        }
+
+        .buttons {
+            margin: 30px 0;
+        }
+
+        button {
+            padding: 12px 25px;
+            margin: 10px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        button:hover {
+            background-color: #fdd365;
+            transform: translateY(-3px);
+        }
+
+        #yesBtn {
+            background-color: #E8671F;
+            color: white;
+        }
+
+        #noBtn {
+            background-color: #E8671F;
+            color: white;
+        }
+
+        #message {
+            margin-top: 30px;
+            font-size: 1.3rem;
+            color: #E8671F;
+            font-weight: bold;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts">
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+    </div>
+
+    <div class="container">
+        <h1>بعد عمري ودنيتي وحياتي</h1>
+        <p>معشوقتي ناهل</p>
+        <p>اسمعي هالاغنيه اللي تحت زين ركزي بالكلمات يلا لا خلصتي كلميني حبيبتي 
+        </p>
+
+        <div class="video-container">
+            <iframe width="100%" height="315" src="https://www.youtube.com/embed/WjTsmiyEPc0" 
+            title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
+            encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+        <div class="buttons">
+            <button id="yesBtn">احبك</button>
+            <button id="noBtn"> احبك ونص </button>
+        </div>
+
+        <div id="message" class="hidden"></div>
+    </div>
+
+    <script>
+        document.getElementById('noBtn').addEventListener('click', function() {
+            var message = document.getElementById('message');
+            message.innerHTML = ' اموت عليك اكثر  ';
+            message.classList.remove('hidden');
+        });
+
+        document.getElementById('yesBtn').addEventListener('click', function() {
+            var message = document.getElementById('message');
+            message.innerHTML = '  اموت عليك   ';
+            message.classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>
+</body>
+</html>
